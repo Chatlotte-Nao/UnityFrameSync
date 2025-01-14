@@ -287,7 +287,9 @@ public class UIModule
 
     public GameObject LoadWindow(string wndName)
     {
-        GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(wndName)), mUIRoot);
+        var path = mWindowConfig.GetWindowPath(wndName);
+        var go = Resources.Load<GameObject>(path);
+        GameObject window = GameObject.Instantiate<GameObject>(go, mUIRoot);
         //GameObject window = ZMAssetsFrame.Instantiate(mWindowConfig.GetWindowPath(wndName),mUIRoot);
         //window.transform.SetParent(mUIRoot);
         window.transform.localScale = Vector3.one;
